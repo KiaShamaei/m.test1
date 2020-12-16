@@ -1,35 +1,29 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import Decrement from "../Controllers/Decrement";
+import Increment from "../Controllers/Increment";
+import Reset from "../Controllers/Reset";
+import CounterValue from "../View/CounterValue";
+import Title from "../View/Title";
 
-function Containers(props) {
+function Containers({
+  resetCounter,
+  incrementCounter,
+  decrementCounter,
+  counterValue,
+}) {
   return (
     <Container>
       <Row className="justify-content-md-center">
-        <Col md="auto" className=" text-center">
-          <h1>First counter</h1>
-        </Col>
+        <Title />
       </Row>
       <Row className="justify-content-md-center">
-        <Col>
-          <Button variant="primary" onClick={props.increament}>
-            +
-          </Button>
-        </Col>
-        <Col>
-          <h5>{props.value ? `Your Count : ${props.value}` : "Zero"}</h5>
-        </Col>
-        <Col>
-          <Button variant="primary" onClick={props.decrement}>
-            -
-          </Button>
-        </Col>
+        <Increment increment={incrementCounter} />
+        <CounterValue value={counterValue} />
+        <Decrement decrement={decrementCounter} />
       </Row>
       <Row className="justify-content-md-center">
-        <Col md="auto">
-          <Button variant="outline-danger" onClick={props.set}>
-            Reset
-          </Button>
-        </Col>
+        <Reset reset={resetCounter} />
       </Row>
     </Container>
   );

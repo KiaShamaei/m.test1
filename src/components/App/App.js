@@ -6,23 +6,31 @@ import "./App.scss";
 
 function App() {
   const [count, setCount] = useState(0);
-  const handleIncrement = () => {
-    setCount((p) => p + 1);
+
+  // increment counter
+  const incrementHandler = () => {
+    setCount(count + 1);
   };
-  const handleDecrement = () => {
-    setCount((p) => p - 1);
+
+  // decrement counter
+  const decrementHandler = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
-  const handleReset = () => {
-    setCount((p) => (p = 0));
+
+  // reset counter
+  const resetHandler = () => {
+    setCount(0);
   };
 
   return (
     <div className="App">
       <Containers
-        increament={handleIncrement}
-        value={count}
-        decrement={handleDecrement}
-        set={handleReset}
+        counterValue={count}
+        incrementCounter={incrementHandler}
+        decrementCounter={decrementHandler}
+        resetCounter={resetHandler}
       />
     </div>
   );
