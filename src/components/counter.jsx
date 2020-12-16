@@ -3,9 +3,6 @@ import { Container, Row, Col} from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 
 function Counter (props) {
-	const [count, setCount] = useState(0);
-	;
-	
 	  	return ( 
 		<Container>
 			<Row className="justify-content-md-center">
@@ -16,7 +13,7 @@ function Counter (props) {
 			<Row className="justify-content-md-center">
 			
 			<Col><Button variant="primary" onClick={props.increament}>+</Button></Col>
-            <Col><h5>Count is {props.value}</h5></Col>
+            <Col><h5>{props.value?`Your Count : ${props.value}`:"Zero"}</h5></Col>
             <Col><Button variant="primary" onClick={props.decrement} >-</Button></Col>
 
 			</Row>
