@@ -2,7 +2,7 @@ import React, { useState }  from "react";
 import Counter from './components/counter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './App.css';
+import './App.scss';
 
 function App() {
 	const [count, setCount] = useState(0);
